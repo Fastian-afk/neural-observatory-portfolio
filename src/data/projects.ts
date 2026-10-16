@@ -48,7 +48,9 @@ export interface PortfolioProject {
   image?: string;
 }
 
-import { ARCHIVE_ONLY_PROJECTS } from "./archiveProjects";
+import { ARCHIVE_ONLY_PROJECTS, archiveProjects } from "./archiveProjects";
+
+export { ARCHIVE_ONLY_PROJECTS, archiveProjects };
 
 export const FEATURED_PROJECTS: PortfolioProject[] = [
   {
@@ -221,7 +223,8 @@ export const FEATURED_PROJECTS: PortfolioProject[] = [
       { label: "Build Window", value: "< 36 hrs", note: "On-site at HackUPC 2026, Barcelona" },
       { label: "Core Engine", value: "Multi-City", note: "Sentiment-aware vector embeddings" },
       { label: "Modalities", value: "Text + Voice", note: "Gemini API + ElevenLabs narration" }
-    ]
+    ],
+    repoUrl: "https://github.com/Fastian-afk/HackUPC-Travel-Mirror"
   },
   {
     id: "prescription-ocr-agent",
@@ -290,7 +293,7 @@ export const FEATURED_PROJECTS: PortfolioProject[] = [
     tags: ["Computer Vision", "Healthcare AI"],
     year: "Jun 2025",
     role: "ML Developer & Researcher",
-    status: "Research Prototype",
+    status: "Research Prototype · Verified Public Repository",
     accent: "emerald",
     featured: true,
     diagramType: "gradcam-xray",
@@ -327,7 +330,8 @@ export const FEATURED_PROJECTS: PortfolioProject[] = [
       { label: "Backbone", value: "ResNet18", note: "PyTorch convolutional pipeline" },
       { label: "Explainability", value: "Grad-CAM", note: "Spatial activation localization" },
       { label: "Domain", value: "Thoracic CXR", note: "Interpretable medical imaging" }
-    ]
+    ],
+    repoUrl: "https://github.com/Fastian-afk/Pneumonia-Detection"
   }
 ];
 

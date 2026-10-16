@@ -17,8 +17,8 @@ export function TelemetryDiagram({ type, image, title }: TelemetryDiagramProps) 
           className="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className=" inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent" />
-        <div className="bottom-2.5 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-cyanSignal">
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent" />
+        <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-cyanSignal">
           <span>BCN // HACKUPC 2026</span>
           <span>MULTI-CITY SENTIMENT EMBEDDINGS</span>
         </div>
@@ -99,10 +99,10 @@ export function TelemetryDiagram({ type, image, title }: TelemetryDiagramProps) 
           <div className="rounded border border-slate-800 bg-midnight/90 p-2.5">
             <div className="text-[10px] font-mono text-violetNeural">02. TOOL AGENT</div>
             <div className="mt-1 text-xs font-medium text-softWhite">LangChain Lookup</div>
-            <div className="mt-0.5 text-[10px] text-slateSecondary">Dosage & side-effects</div>
+            <div className="mt-0.5 text-[10px] text-slateSecondary">Dosage &amp; side-effects</div>
           </div>
           <div className="rounded border border-slate-800 bg-midnight/90 p-2.5">
-            <div className="text-[10px] font-mono text-emeraldTelemetry">03. CLINICAL Q&A</div>
+            <div className="text-[10px] font-mono text-emeraldTelemetry">03. CLINICAL Q&amp;A</div>
             <div className="mt-1 text-xs font-medium text-softWhite">MedGemMA 4.0</div>
             <div className="mt-0.5 text-[10px] text-slateSecondary">Grounded synthesis</div>
           </div>

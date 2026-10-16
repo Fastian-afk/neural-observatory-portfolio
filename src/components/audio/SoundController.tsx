@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
 /**
@@ -19,19 +19,7 @@ export function SoundController() {
   const masterGainRef = useRef<GainNode | null>(null);
   const oscillatorsRef = useRef<OscillatorNode[]>([]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-      if (!AudioCtx) {
-        setAudioSupported(false);
-      }
-    }
-    return () => {
-      stopAudioEngine();
-    };
-  }, []);
-
-  const stopAudioEngine = () => {
+  const stopAudioEngine = useCallback(() => {
     try {
       oscillatorsRef.current.forEach((osc) => {
         try {
@@ -50,7 +38,21 @@ export function SoundController() {
     } catch {
       // safe cleanup
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const AudioCtx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+      if (!AudioCtx) {
+        setAudioSupported(false);
+      }
+    }
+    return () => {
+      stopAudioEngine();
+    };
+  }, [stopAudioEngine]);
 
   const toggleSound = async () => {
     if (!audioSupported) return;
@@ -67,7 +69,9 @@ export function SoundController() {
     }
 
     try {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const AudioCtx =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       const ctx = new AudioCtx();
       ctxRef.current = ctx;
 

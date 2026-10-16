@@ -49,7 +49,8 @@ neural-observatory-portfolio/
 │   ├── data/
 │   │   ├── profile.ts                     # Identity, thesis, mission narrative, FAST-NUCES education
 │   │   ├── links.ts                       # Verified external URLs, email, navigation stations
-│   │   ├── projects.ts                    # 5 flagship case studies + 5 archive builds
+│   │   ├── projects.ts                    # 5 flagship case studies + unified PROJECTS export
+│   │   ├── archiveProjects.ts             # 5 structured archive case studies (ARC-01..ARC-05)
 │   │   ├── research.ts                    # IEEE IRAI, Elsevier Safety Science, MIMIC-IV research
 │   │   ├── experience.ts                  # TechGIS, MIDL/NCAI, NASTP internship timeline
 │   │   ├── skills.ts                      # 5 domain constellations (no fake percentage bars)
@@ -61,6 +62,8 @@ neural-observatory-portfolio/
 │   └── styles/
 │       ├── tokens.css                     # Color, border, and easing CSS variables
 │       └── globals.css                    # Tailwind base, focus-visible & reduced-motion rules
+├── .eslintrc.json
+├── next-env.d.ts
 ├── package.json
 ├── tsconfig.json
 ├── tailwind.config.ts
@@ -102,18 +105,19 @@ No environment variables are required for the static portfolio. Optionally, set 
 All portfolio content lives in strictly typed TypeScript modules inside `src/data/` so you never have to dig through JSX components:
 
 1. **Update Graduation Status, Bio, or Coursework**: Edit `src/data/profile.ts`.
-2. **Add or Update Case Studies & Project Links**: Edit `src/data/projects.ts`. Any project with `repoUrl` or `demoUrl` populated will automatically render verified action buttons; omitted URLs cleanly hide the button instead of rendering dead links.
-3. **Update Paper Statuses (`Submitted` → `Accepted` / `Published`)**: Edit `src/data/research.ts` (`statusBadge` and `integrityNote`).
-4. **Update Hackathon Statuses (e.g., Junction 2026 Finland)**: Edit `HACKATHON_LEDGER` in `src/data/achievements.ts`.
-5. **Replace the Résumé PDF**: Your uploaded `Resume_Final.pdf` has already been copied to `public/imaad-fazal-resume.pdf`. To update it in the future, overwrite `public/imaad-fazal-resume.pdf` with your newer PDF using the same filename.
-6. **Customize Ambient Audio**: Edit `src/components/audio/SoundController.tsx` to adjust harmonic pad frequencies (`[73.42, 110.0, 185.0, 220.0]`) or default gain envelope. Audio is strictly **OFF by default** and starts only on explicit user interaction.
+2. **Add or Update Flagship Case Studies**: Edit `FEATURED_PROJECTS` in `src/data/projects.ts`.
+3. **Add or Update Archive Builds**: Edit `ARCHIVE_ONLY_PROJECTS` in `src/data/archiveProjects.ts` (automatically merged into `PROJECTS` in `src/data/projects.ts`). Any project with `repoUrl` or `demoUrl` populated will automatically render verified action buttons; omitted URLs cleanly hide the button instead of rendering dead links.
+4. **Update Paper Statuses (`Submitted` → `Accepted` / `Published`)**: Edit `src/data/research.ts` (`statusBadge` and `integrityNote`).
+5. **Update Hackathon Statuses (e.g., Junction 2026 Finland)**: Edit `HACKATHON_LEDGER` in `src/data/achievements.ts`.
+6. **Replace the Résumé PDF**: Your uploaded `Resume_Final.pdf` has already been copied to `public/imaad-fazal-resume.pdf`. To update it in the future, overwrite `public/imaad-fazal-resume.pdf` with your newer PDF using the same filename.
+7. **Customize Ambient Audio**: Edit `src/components/audio/SoundController.tsx` to adjust harmonic pad frequencies (`[73.42, 110.0, 185.0, 220.0]`) or default gain envelope. Audio is strictly **OFF by default** and starts only on explicit user interaction.
 
 ---
 
 ## 4. Deploying to Vercel
 
-1. Push this project directory to a GitHub repository (e.g., `Fastian-afk/neural-observatory-portfolio`).
-2. Open [Vercel](https://vercel.com/new) and import the GitHub repository.
+1. Push this project directory to your GitHub repository (`Fastian-afk/neural-observatory-portfolio`).
+2. Open [Vercel](https://vercel.com/new) and import or redeploy the GitHub repository.
 3. Keep the default Next.js preset:
    - **Framework Preset**: `Next.js`
    - **Build Command**: `next build`
