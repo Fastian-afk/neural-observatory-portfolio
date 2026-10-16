@@ -1,0 +1,50 @@
+@import "./tokens.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  selection-background-color: rgba(105, 225, 255, 0.25);
+}
+
+::selection {
+  background: rgba(105, 225, 255, 0.25);
+  color: #f2f5fa;
+}
+
+/* Keyboard accessibility focus ring */
+:focus-visible {
+  outline: 2px solid var(--signal-cyan);
+  outline-offset: 3px;
+}
+
+/* Subtle observatory telemetry grid */
+.observatory-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+}

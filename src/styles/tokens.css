@@ -1,0 +1,25 @@
+:root {
+  --bg-obsidian: #070a12;
+  --bg-midnight: #0b1224;
+  --bg-panel: rgba(14, 23, 46, 0.78);
+  --bg-panel-elevated: rgba(18, 30, 58, 0.92);
+
+  --signal-cyan: #69e1ff;
+  --signal-amber: #ffbf69;
+  --signal-violet: #9d7bff;
+  --signal-emerald: #34d399;
+
+  --text-primary: #f2f5fa;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --border-hairline: rgba(148, 163, 184, 0.16);
+  --border-cyan-glow: rgba(105, 225, 255, 0.42);
+  --border-amber-glow: rgba(255, 191, 105, 0.42);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
